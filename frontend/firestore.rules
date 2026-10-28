@@ -1,0 +1,91 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    /* ============================================================
+       USER DATA
+       ============================================================ */
+
+    match /users/{userId} {
+
+      /*
+       * A user can access only their own user document.
+       *
+       * Email must also be verified before accessing
+       * application data.
+       */
+      allow read, write: if isVerifiedOwner(userId);
+
+      /* ==========================================================
+         STARTUP IDEAS
+
+         users/{uid}/ideas/{ideaId}
+         ========================================================== */
+
+      match /ideas/{ideaId} {
+        allow read, create, update, delete:
+          if isVerifiedOwner(userId);
+      }
+
+      /* ==========================================================
+         VALIDATIONS
+
+         users/{uid}/validations/{validationId}
+         ========================================================== */
+
+      match /validations/{validationId} {
+        allow read, create, update, delete:
+          if isVerifiedOwner(userId);
+      }
+
+      /* ==========================================================
+         ANALYTICS
+
+         users/{uid}/analytics/{analyticsId}
+         ========================================================== */
+
+      match /analytics/{analyticsId} {
+        allow read, create, update, delete:
+          if isVerifiedOwner(userId);
+      }
+    }
+
+    /* ============================================================
+       SERVER-MANAGED VALIDATION RESULTS
+
+       Your /api/validate route writes to:
+
+       validationResults/{documentId}
+
+       It uses Firebase Admin SDK.
+
+       Therefore the browser should NEVER be allowed to
+       directly read or modify this collection.
+       ============================================================ */
+
+    match /validationResults/{validationId} {
+      allow read, write: if false;
+    }
+
+    /* ============================================================
+       DEFAULT DENY
+
+       Any collection not explicitly defined above is denied.
+       ============================================================ */
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    /* ============================================================
+       SECURITY HELPER
+       ============================================================ */
+
+    function isVerifiedOwner(userId) {
+      return request.auth != null
+        && request.auth.uid == userId
+        && request.auth.token.email_verified == true;
+    }
+  }
+}
