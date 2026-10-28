@@ -39,3 +39,14 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Local backup - do not upload
+/frontend-backup/
+
+# Local backup - do not upload
+/frontend-backup/
+
+# Local original folder - keep out of repository
+/frontend/
+# Local backup
+/frontend-backup/
