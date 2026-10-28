@@ -2,292 +2,211 @@
 
 > **Your AI co-pilot for smarter startup decisions.**
 
-## What if you could test a startup idea before spending months building it?
+AI Startup Co-Pilot is an AI-powered startup idea evaluation platform designed to help aspiring founders analyze their ideas, identify potential risks, and make more informed early-stage decisions.
 
-**AI Startup Co-Pilot** is being built to help founders move from a raw idea to an informed decision.
+The project is being developed in phases, beginning with a Gemini-powered validation workflow and a secure web application. Future phases will focus on evidence retrieval, an Evidence Engine, and machine-learning-based viability prediction.
 
-Instead of simply generating an AI response about whether an idea is "good" or "bad," the platform is designed to look at a startup idea from multiple angles — **the customer problem, target users, market opportunity, competition, differentiation, business model, risks, and execution potential**.
+## 🎯 Problem Statement
 
-The goal is not to replace a founder's judgment.
+Many aspiring founders begin building products before validating their assumptions. They may struggle to understand their target customers, assess competition, identify risks, and determine what to validate first.
 
-The goal is to give the founder **better information before making an expensive decision**.
+AI Startup Co-Pilot aims to organize startup idea evaluation into a structured process that helps founders understand potential strengths, weaknesses, and next steps.
 
----
+## 💡 Proposed Solution
 
-## 🎯 The Problem
+Users submit a startup idea and receive a structured AI-generated assessment intended to support early-stage decision-making.
 
-A startup idea can sound exciting and still fail in the real world.
+The platform is designed to help users explore:
 
-Founders often start building before answering important questions:
+- Customer problems and target users
+- Market opportunity and competition
+- Business model considerations
+- Potential risks and opportunities
+- Suggestions and practical next steps
 
-* Is this solving a real problem?
-* Who actually needs it?
-* How large is the potential market?
-* What alternatives already exist?
-* Why would someone choose this product?
-* What makes the idea different?
-* Can it become a viable business?
-* What are the biggest risks?
-* What should be built first?
+**Important:** The assessment is decision support, not a guarantee of market demand or startup success. AI-generated conclusions should be validated with reliable evidence and real customer feedback.
 
-AI Startup Co-Pilot is designed around these questions.
+## ✨ Phase 1 — Current Foundation
 
----
+The first phase focuses on building the core web application and AI-powered evaluation workflow.
 
-## 💡 The Core Idea
+- **Startup idea evaluation:** Gemini-powered analysis of submitted ideas.
+- **Structured results:** Organizes assessment output into a defined response format.
+- **Authentication:** Firebase Authentication integration.
+- **Protected application:** Authentication checks for protected functionality.
+- **Dashboard and results pages:** User interface for accessing the application and evaluation results.
+- **Backend API routes:** Validation, history, and analytics endpoints.
+- **Validation roadmap:** A dedicated route for the roadmap experience.
+- **TypeScript-based application:** Typed components and application logic.
 
-A user enters a startup idea in their own words.
+The availability and completeness of individual features may depend on the current development state and configuration.
 
-The system then transforms that raw idea into a structured startup analysis.
-
-```text
-Startup Idea
-     ↓
-Problem & Customer Analysis
-     ↓
-Market Opportunity
-     ↓
-Competitor Landscape
-     ↓
-Differentiation
-     ↓
-Business Model
-     ↓
-Risks & Challenges
-     ↓
-Validation Score
-     ↓
-Actionable Next Steps
-```
-
-The final objective is to help the user answer one important question:
-
-> **Is this idea worth building — and what should I do next?**
-
----
-
-## 🔎 What the Platform Analyzes
-
-### 1. Problem Validation
-
-Understand the problem the startup is attempting to solve and whether it represents a meaningful customer pain point.
-
-### 2. Target Customer
-
-Identify the likely users, customer segments, and early adopters who may have the strongest need for the solution.
-
-### 3. Market Opportunity
-
-Explore the potential market, relevant trends, and opportunity surrounding the idea.
-
-### 4. Competitor Analysis
-
-Identify existing competitors and alternative solutions that users may already be using.
-
-### 5. Differentiation
-
-Analyze what makes the proposed solution different and where it may need a stronger competitive advantage.
-
-### 6. Business Model
-
-Explore possible monetization strategies and how the idea could potentially become a sustainable business.
-
-### 7. Risk Analysis
-
-Highlight major risks, assumptions, weaknesses, and challenges that could affect the startup.
-
-### 8. Validation Score
-
-Convert the analysis into a structured score that helps users quickly understand the overall strength of their idea.
-
-### 9. Next-Step Recommendations
-
-Provide practical recommendations instead of stopping at analysis.
-
-The objective is to answer:
-
-> **What should I do next?**
-
----
-
-## 🧠 AI as a Co-Pilot, Not an Oracle
-
-AI Startup Co-Pilot is not intended to predict whether a startup will definitely succeed.
-
-No AI system can guarantee that.
-
-Instead, the platform aims to combine AI reasoning with structured analysis to help users:
-
-* identify blind spots
-* challenge assumptions
-* discover potential risks
-* understand their competitive position
-* explore opportunities
-* decide what to validate next
-
-The final decision still belongs to the founder.
-
----
-
-## 🛠️ Technology
-
-### Frontend
-
-* Next.js
-* React
-* TypeScript
-* Tailwind CSS
-
-### AI & Backend
-
-* Python
-* Large Language Model APIs
-* Data processing and analysis
-
-### Development
-
-* Visual Studio Code
-* Git
-* GitHub
-
----
-
-## 🏗️ Current Architecture
+## ⚙️ How It Works
 
 ```text
 User
-  │
-  ▼
-Startup Idea Input
-  │
-  ▼
-AI Analysis Engine
-  │
-  ├── Problem Analysis
-  ├── Customer Analysis
-  ├── Market Analysis
-  ├── Competitor Analysis
-  ├── Differentiation Analysis
-  ├── Business Model Analysis
-  └── Risk Analysis
-          │
-          ▼
-   Validation Engine
-          │
-          ▼
-  Structured Results
-          │
-          ▼
- Recommendations & Next Steps
+  |
+  v
+Enter Startup Idea
+  |
+  v
+Authenticated Application
+  |
+  v
+Gemini-Powered Analysis
+  |
+  v
+Structured Evaluation
+  |
+  v
+Results and Recommendations
+  |
+  v
+Founder Reviews and Validates Assumptions
 ```
 
----
+Phase 1 establishes the core workflow. Evidence-backed retrieval and a separately developed ML prediction model are planned for a future phase.
 
-## 📁 Project Structure
+## 🧰 Technology Stack
+
+| Area | Technologies |
+|---|---|
+| Frontend | Next.js, React, TypeScript |
+| Styling | Tailwind CSS |
+| AI integration | Google Gemini API using `@google/genai` |
+| Authentication | Firebase Authentication |
+| Database | Cloud Firestore |
+| Backend | Next.js App Router API routes |
+| Development | Node.js, npm, Visual Studio Code |
+| Version control | Git and GitHub |
+
+## 🗂️ Project Structure
 
 ```text
-ai-startup-idea-validator/
-│
-└── frontend/
-    ├── app/
-    │   ├── layout.tsx
-    │   ├── page.tsx
-    │   └── globals.css
-    │
-    ├── public/
-    ├── package.json
-    ├── package-lock.json
-    ├── next.config.ts
-    └── tsconfig.json
+AI-Startup-CoPilot/
+├── app/
+│   ├── api/
+│   │   ├── analytics/
+│   │   ├── history/
+│   │   └── validate/
+│   ├── auth/
+│   ├── dashboard/
+│   ├── results/
+│   ├── validation-Roadmap/
+│   ├── globals.css
+│   ├── layout.tsx
+│   └── page.tsx
+├── components/
+│   └── AuthGuard.tsx
+├── lib/
+│   ├── api.ts
+│   ├── auth-server.ts
+│   ├── firebase-admin.ts
+│   ├── firebase.ts
+│   └── rate-limit.ts
+├── public/
+├── firestore.rules
+├── package.json
+├── package-lock.json
+├── next.config.ts
+├── tsconfig.json
+└── README.md
 ```
 
----
+## 🚀 Getting Started
 
-## 🚧 Development Status
+### Prerequisites
 
-**Status: Active Development**
+- Node.js and npm
+- Git
+- A Google Gemini API key
+- A Firebase project configured for the application
 
-The project is currently in the early development stage.
+### 1. Clone the repository
 
-### Completed
-
-* [x] Project initialized
-* [x] Next.js frontend created
-* [x] Git configured
-* [x] GitHub repository created
-* [x] Initial project committed
-* [x] Initial project pushed to GitHub
-
-### Currently Building
-
-* [ ] Product landing page
-* [ ] Startup idea input experience
-* [ ] AI analysis workflow
-* [ ] Validation framework
-* [ ] Market research integration
-* [ ] Competitor analysis
-* [ ] Validation scoring system
-* [ ] Results dashboard
-
-### Future Direction
-
-* [ ] Detailed startup validation reports
-* [ ] MVP planning assistant
-* [ ] Startup idea comparison
-* [ ] Saved analysis history
-* [ ] Founder workspace
-* [ ] Deployment and production release
-
----
-
-## 🧭 Product Vision
-
-The long-term vision is to build an AI-powered workspace that supports founders through the early stages of building a startup.
-
-```text
-IDEA
-  ↓
-UNDERSTAND THE PROBLEM
-  ↓
-VALIDATE THE MARKET
-  ↓
-STUDY THE COMPETITION
-  ↓
-FIND DIFFERENTIATION
-  ↓
-PLAN THE MVP
-  ↓
-BUILD
+```bash
+git clone https://github.com/bhavesh-bhokare/Ai-Startup-CoPilot.git
+cd Ai-Startup-CoPilot
 ```
 
-AI Startup Co-Pilot starts with one simple question:
+### 2. Install dependencies
 
-> **"Is my idea worth building?"**
+```bash
+npm ci
+```
 
-But the larger goal is to help answer the questions that come after it.
+### 3. Configure environment variables
 
-> **"Who should I build it for?"**
+Create a local `.env.local` file in the project root and configure the environment variables required by the application.
 
-> **"How is it different?"**
+At minimum, the application uses `GEMINI_API_KEY` for Gemini integration. Firebase client and server configuration values may also be required.
 
-> **"What could make it fail?"**
+Refer to the environment-variable names used in the source code. **Never commit API keys, private service-account credentials, or `.env.local` to GitHub.**
 
-> **"What should I build first?"**
+### 4. Start the development server
 
-> **"What should I validate before I invest more time and money?"**
+```bash
+npm run dev
+```
 
----
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## 👨‍💻 Creator
+### 5. Build for production
+
+```bash
+npm run build
+```
+
+A successful build checks whether the application can compile for production; it does not by itself confirm that every external service or feature works correctly.
+
+## 🔐 Security Considerations
+
+- Keep API keys and service-account credentials out of version control.
+- Configure Firebase Authentication and Firestore rules appropriately.
+- Enforce user-level data access restrictions on the server.
+- Review dependency vulnerabilities and keep packages updated.
+- Test protected API routes and failure scenarios before deployment.
+
+## 🛣️ Phase 2 — Planned Research and Development
+
+The next phase aims to strengthen the platform beyond general-purpose generative AI.
+
+### 1. Retrieval-Augmented Generation (RAG)
+
+Retrieve relevant information from selected sources to provide contextual evidence for startup evaluations.
+
+### 2. Evidence Engine
+
+Develop a pipeline to retrieve, clean, deduplicate, rank, and assess evidence quality, recency, contradictions, and confidence.
+
+### 3. Machine-Learning Viability Prediction
+
+Develop and evaluate a separate ML model for startup viability-related predictions, using a defined dataset, appropriate features, and suitable evaluation metrics.
+
+### 4. Evidence-Backed Decision Support
+
+Combine retrieved evidence, model outputs, and Gemini-generated explanations to support more transparent and informed decisions.
+
+These capabilities are planned and should not be considered implemented until they have been developed and tested.
+
+## 🔭 Long-Term Vision
+
+The long-term goal is to evolve the application into a founder workspace that supports a repeatable decision-making cycle:
+
+**Idea → Evidence → Experiment → Learning → Decision**
+
+The aim is to help founders decide whether to build, validate further, iterate, or reconsider an idea based on available evidence and observed results.
+
+## 👨‍💻 Author
 
 **Bhavesh Bhokare**
 
 B.Tech — Artificial Intelligence and Machine Learning
 
-Built as an AI/ML project exploring how artificial intelligence can support early-stage startup decision-making.
+Project: AI Startup Co-Pilot
 
----
+## 📌 Project Status
 
-## 📌 Note
+**Status:** Active development — Phase 1 foundation.
 
-AI Startup Co-Pilot is an ongoing project and is being developed iteratively. The current implementation represents the foundation of the platform, with additional AI analysis and startup intelligence capabilities planned for future development.
+AI Startup Co-Pilot is an academic AI/ML project being developed iteratively. Features and capabilities will expand as subsequent phases are implemented and evaluated.
